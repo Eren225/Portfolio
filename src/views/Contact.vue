@@ -1,8 +1,6 @@
 <template>
   <div class="text-center p-10">
     <h1 class="text-4xl font-bold text-white mb-8">Contact</h1>
-    <p class="text-lg text-gray-300 mb-8">Contactez-moi à l'adresse email suivante :</p>
-    <a href="mailto:matteo@example.com" class="text-cyan-400 font-bold">matteo@example.com</a>
 
     <!-- Boutons pour bureau (non mobile) -->
     <div class="mt-10 space-x-6" v-if="!isMobile">
