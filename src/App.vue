@@ -3,6 +3,7 @@
     <!-- Si l'utilisateur est sur mobile, afficher "Site en construction" -->
     <div v-if="isMobile" class="text-center p-10">
       <h1 class="text-4xl font-bold text-white mb-8">Site en construction</h1>
+      <p class="text-lg text-gray-300 mb-8">(disponible pour le moment uniquement sur pc)</p>
       <p class="text-lg text-gray-300 mb-8">Vous allez être redirigé vers mon CV...</p>
     </div>
 
