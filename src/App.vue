@@ -1,18 +1,27 @@
 <template>
   <div id="app">
-    <Navbar />
-    <section id="about" class="bg-cover bg-center h-screen background-image">
-      <About />
-    </section>
-    <section id="skills" class="px-10">
-      <Skills />
-    </section>
-    <section id="projects" class="px-10">
-      <Projects />
-    </section>
-    <section id="contact" class="px-10">
-      <Contact />
-    </section>
+    <!-- Si l'utilisateur est sur mobile, afficher "Site en construction" -->
+    <div v-if="isMobile" class="text-center p-10">
+      <h1 class="text-4xl font-bold text-white mb-8">Site en construction</h1>
+      <p class="text-lg text-gray-300 mb-8">Vous allez être redirigé vers mon CV...</p>
+    </div>
+
+    <!-- Contenu du site pour les utilisateurs non mobiles -->
+    <div v-else>
+      <Navbar />
+      <section id="about" class="bg-cover bg-center h-screen background-image">
+        <About />
+      </section>
+      <section id="skills" class="px-10">
+        <Skills />
+      </section>
+      <section id="projects" class="px-10">
+        <Projects />
+      </section>
+      <section id="contact" class="px-10">
+        <Contact />
+      </section>
+    </div>
   </div>
 </template>
 
@@ -31,6 +40,28 @@ export default {
     Skills,
     Projects,
     Contact
+  },
+  data() {
+    return {
+      isMobile: false // Suivre si l'utilisateur est sur mobile
+    };
+  },
+  mounted() {
+    // Détecte si l'utilisateur est sur mobile
+    this.isMobile = this.detectMobile();
+    
+    // Redirige vers le CV si l'utilisateur est sur mobile après 3 secondes
+    if (this.isMobile) {
+      setTimeout(() => {
+        window.location.href = '/CV_Matteo_Rober_FR.pdf';
+      }, 3000); // Délai de 3 secondes avant la redirection
+    }
+  },
+  methods: {
+    // Fonction pour détecter si l'utilisateur est sur un appareil mobile
+    detectMobile() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
   }
 }
 </script>
@@ -50,6 +81,4 @@ body {
   background-size: cover;
   background-position: center;
 }
-
-
 </style>
