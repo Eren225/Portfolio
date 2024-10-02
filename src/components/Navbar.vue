@@ -1,91 +1,66 @@
 <template>
-  <nav class="navbar fixed top-0 left-0 bg-gray-900 bg-opacity-40 backdrop-blur-md z-50 p-4 w-full">
-    <!-- Menu hamburger pour les petits écrans -->
-    <div class="flex justify-between items-center md:hidden">
-      <h1 class="text-white font-bold text-xl">Menu</h1>
-      <button @click="isMenuOpen = !isMenuOpen" class="text-white">
-        <!-- Icône du menu hamburger -->
-        <img src="../components/icons/bars.png" alt="ouvrir menu"/>
-      </button>
+  <div class="text-center p-10">
+    <!-- Affichage "Site en construction" si sur mobile -->
+    <div v-if="isMobile">
+      <h1 class="text-4xl font-bold text-white mb-8">Site en construction</h1>
+      <p class="text-lg text-gray-300 mb-8">Vous allez être redirigé vers mon CV...</p>
     </div>
 
-    <!-- Liste des liens de navigation -->
-    <ul :class="{'block': isMenuOpen, 'hidden': !isMenuOpen}" class="md:flex justify-end space-x-8 pr-10 mt-4 md:mt-0 md:space-y-0 space-y-4 md:space-y-0 hidden">
-      <li><a href="#about" class="nav-link" @click.prevent="scrollToSection('about')">À propos</a></li>
-      <li><a href="#skills" class="nav-link" @click.prevent="scrollToSection('skills')">Compétences</a></li>
-      <li><a href="#projects" class="nav-link" @click.prevent="scrollToSection('projects')">Projets</a></li>
-      <li><a href="#contact" class="nav-link" @click.prevent="scrollToSection('contact')">Contact</a></li>
-    </ul>
-  </nav>
+    <!-- Affichage du contenu complet pour bureau (non mobile) -->
+    <div v-else>
+      <h1 class="text-4xl font-bold text-white mb-8">Contact</h1>
+      <p class="text-lg text-gray-300 mb-8">Contactez-moi à l'adresse email suivante :</p>
+      <a href="mailto:matteo@example.com" class="text-cyan-400 font-bold">matteo@example.com</a>
+
+      <!-- Boutons pour bureau -->
+      <div class="mt-10 space-y-6">
+        <!-- Bouton pour ouvrir le CV -->
+        <a href="/cv.pdf" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
+          Ouvrir mon CV
+        </a>
+
+        <!-- Bouton pour envoyer un email -->
+        <a href="mailto:matteo@example.com" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
+          Me contacter par email
+        </a>
+
+        <!-- Bouton pour LinkedIn -->
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
+          Mon LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Navbar',
+  name: 'Contact',
   data() {
     return {
-      isMenuOpen: false // Variable pour suivre l'état du menu hamburger
+      isMobile: false // Suivi si l'utilisateur est sur mobile
     };
   },
+  mounted() {
+    // Détecte si l'utilisateur est sur mobile
+    this.isMobile = this.detectMobile();
+    
+    // Redirige vers le CV si l'utilisateur est sur mobile
+    if (this.isMobile) {
+      setTimeout(() => {
+        window.location.href = '/cv.pdf';
+      }, 3000); // Ajoute un délai de 3 secondes avant la redirection
+    }
+  },
   methods: {
-    scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        const yOffset = -30; // Décalage de 10px pour laisser un espace
-        const y = section.getBoundingClientRect().top + window.scrollY + yOffset;
-        
-        window.scrollTo({ top: y, behavior: 'smooth' });
-        this.isMenuOpen = false; // Ferme le menu après avoir cliqué sur un lien
-      }
+    // Fonction pour détecter si l'utilisateur est sur mobile
+    detectMobile() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
   }
 }
 </script>
 
 <style scoped>
-/* Navbar occupe toute la largeur */
-.navbar {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.nav-link {
-  @apply text-white font-bold text-lg relative transition-colors duration-300 block md:inline-block; /* Block pour mobile, inline pour desktop */
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #00bfff; /* Couleur bleu vif */
-  left: 0;
-  bottom: -5px;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.nav-link:hover {
-  @apply text-cyan-400;
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* Scrollbar par défaut */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-
-/* Menu hamburger */
-button {
-  @apply focus:outline-none;
-}
+/* Style personnalisé */
 </style>
