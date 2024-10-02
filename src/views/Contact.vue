@@ -38,7 +38,7 @@ export default {
     
     // Redirige vers le CV si l'utilisateur est sur mobile
     if (this.isMobile) {
-      window.location.href = '../../public/CV_Matteo_Rober_FR.pdf';
+      window.location.href = '../../CV_Matteo_Rober_FR.pdf';
     }
   },
   methods: {
