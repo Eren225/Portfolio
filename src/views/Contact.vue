@@ -10,7 +10,7 @@
       </a>
 
       <!-- Bouton pour envoyer un email -->
-      <a href="mailto:matteo@example.com" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
+      <a href="mailto:m.rober@student.helmo.be" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
         Me contacter par email
       </a>
 
