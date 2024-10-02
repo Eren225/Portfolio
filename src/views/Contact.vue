@@ -7,7 +7,7 @@
     <!-- Boutons pour bureau (non mobile) -->
     <div class="mt-10 space-y-6" v-if="!isMobile">
       <!-- Bouton pour ouvrir le CV -->
-      <a href="../../public/CV_Matteo_Rober_FR.pdf" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
+      <a href="/CV_Matteo_Rober_FR.pdf" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
         Ouvrir mon CV
       </a>
 
