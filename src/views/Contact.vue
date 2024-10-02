@@ -7,7 +7,7 @@
     <!-- Boutons pour bureau (non mobile) -->
     <div class="mt-10 space-y-6" v-if="!isMobile">
       <!-- Bouton pour ouvrir le CV -->
-      <a href="/cv.pdf" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
+      <a href="../../public/CV_Matteo_Rober_FR.pdf" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
         Ouvrir mon CV
       </a>
 
@@ -38,7 +38,7 @@ export default {
     
     // Redirige vers le CV si l'utilisateur est sur mobile
     if (this.isMobile) {
-      window.location.href = '/cv.pdf';
+      window.location.href = '../../public/CV_Matteo_Rober_FR.pdf';
     }
   },
   methods: {
