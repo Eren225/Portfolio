@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar fixed top-0 left-0 bg-gray-900 bg-opacity-40 backdrop-blur-md z-50 p-4 w-full">
+  <nav class="navbar fixed top-0 left-0 bg-stone-900 bg-opacity-40 backdrop-blur-md z-50 p-4 w-full">
     <!-- Menu hamburger pour les petits écrans -->
     <div class="flex justify-between items-center md:hidden">
       <h1 class="text-white font-bold text-xl">Menu</h1>
