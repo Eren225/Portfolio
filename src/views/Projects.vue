@@ -17,8 +17,8 @@
         <!-- Galerie d'images sous le texte -->
         <div class="flex flex-wrap space-x-4 mb-6">
           <img src="../components/images/mcdo.jpg" alt="Image 1" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../assets/mcdo-Dr827aoS.jpg')" />
-          <img src="../components/images/phone.png" alt="Image 2" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../src/components/images/phone.png')" />
-          <img src="../components/images/wall.jpg" alt="Image 3" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../src/components/images/wall.jpg')" />
+          <img src="../components/images/phone.png" alt="Image 2" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../assets/phone-D3Boevh9.png')" />
+          <img src="../components/images/wall.jpg" alt="Image 3" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../assets/wall-DNikyJ4z.jpg')" />
         </div>
 
         <!-- Vidéo du projet -->
@@ -46,9 +46,9 @@
 
         <!-- Galerie d'images sous le texte -->
         <div class="flex flex-wrap space-x-4 mb-6">
-          <img src="../components/images/rocket_refund.png" alt="Image 1" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../src/components/images/rocket_refund.png')" />
-          <img src="../components/images/mcd.png" alt="Image 2" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../src/components/images/mcd.png')" />
-          <img src="../components/images/mobile.jpg" alt="Image 3" class="h-36 w-20 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../src/components/images/mobile.jpg')" />
+          <img src="../components/images/rocket_refund.png" alt="Image 1" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../assets/rocket_refund-Bb0nqGYA.png')" />
+          <img src="../components/images/mcd.png" alt="Image 2" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../assets/mcd-DTGjMPU4.png')" />
+          <img src="../components/images/mobile.jpg" alt="Image 3" class="h-36 w-20 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../assets/mobile-CF-3FKVP.jpg')" />
         </div>
 
         <!-- Vidéo du projet -->
