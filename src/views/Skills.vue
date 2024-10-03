@@ -122,7 +122,7 @@
         <div class="bg-blue-400 hover:bg-blue-500 w-36 h-44 rounded-lg shadow-lg flex flex-col justify-center items-center transition-transform transform hover:scale-110">
           <img src="https://cdn-icons-png.flaticon.com/512/197/197441.png" alt="Néerlandais" class="w-2/3 mb-2" />
           <div class="w-5/6 h-1 bg-gray-300 rounded-full mt-2">
-            <div class="w-3/5 h-full bg-gray-800 rounded-full"></div> <!-- 60% pour Néerlandais -->
+            <div class="w-3/4 h-full bg-gray-800 rounded-full"></div> <!-- 60% pour Néerlandais -->
           </div>
         </div>
         <p class="text-gray-300 mt-4">Néerlandais</p>
