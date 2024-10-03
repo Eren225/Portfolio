@@ -16,7 +16,7 @@
 
         <!-- Galerie d'images sous le texte -->
         <div class="flex flex-wrap space-x-4 mb-6">
-          <img src="../components/images/mcdo.jpg" alt="Image 1" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../src/components/images/mcdo.jpg')" />
+          <img src="../components/images/mcdo.jpg" alt="Image 1" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../assets/mcdo-Dr827aoS.jpg')" />
           <img src="../components/images/phone.png" alt="Image 2" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../src/components/images/phone.png')" />
           <img src="../components/images/wall.jpg" alt="Image 3" class="h-36 w-36 rounded-lg object-cover hover:scale-105 transition-transform cursor-pointer" @click="openImage('../src/components/images/wall.jpg')" />
         </div>
