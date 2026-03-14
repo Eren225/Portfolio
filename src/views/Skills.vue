@@ -1,9 +1,9 @@
 <template>
   <div class="section-shell p-5 sm:p-8 md:p-10">
     <SectionHeading
-      eyebrow="Competences"
+      eyebrow="Compétences"
       title="Un profil tech + business"
-      description="Des competences techniques et produit construites sur des projets web, d analyse et d applications."
+      description="Des compétences techniques et produit, construites sur des projets web, d'analyse et d'applications."
     />
 
     <div class="mt-8 space-y-7">

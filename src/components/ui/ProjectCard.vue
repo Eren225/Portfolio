@@ -76,7 +76,7 @@
     <div v-if="project.video?.src" class="theme-surface-strong theme-border mt-6 rounded-xl border p-3">
       <video controls class="w-full rounded-xl">
         <source :src="project.video.src" type="video/mp4" />
-        Votre navigateur ne supporte pas la video.
+        Votre navigateur ne supporte pas la vidéo.
       </video>
     </div>
 

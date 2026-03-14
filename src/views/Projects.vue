@@ -2,8 +2,8 @@
   <div class="section-shell p-5 sm:p-8 md:p-10">
     <SectionHeading
       eyebrow="Projets"
-      title="Du besoin metier a la solution"
-      description="Une selection de projets web et applicatifs, avec un equilibre entre execution technique et logique produit."
+      title="Du besoin métier à la solution"
+      description="Une sélection de projets web et applicatifs, avec un équilibre entre exécution technique et logique produit."
     />
 
     <div class="mt-8 grid gap-6">

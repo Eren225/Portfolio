@@ -16,19 +16,19 @@ import helmoGalleryThree from '@/components/images/mobile.jpg'
 import helmoVideo from '@/components/images/puroguramu.mp4'
 
 export const navigationLinks = [
-  { id: 'about', label: 'A propos' },
+  { id: 'about', label: 'À propos' },
   { id: 'projects', label: 'Projets' },
-  { id: 'skills', label: 'Competences' },
+  { id: 'skills', label: 'Compétences' },
   { id: 'contact', label: 'Contact' }
 ]
 
 export const heroContent = {
-  badge: 'Tech + business, disponible pour echanger',
-  greeting: 'Hey, moi c est Matteo.',
-  headline: 'Etudiant en master en sciences de gestion a HEC Liege',
+  badge: 'Tech + business, disponible pour échanger',
+  greeting: 'Hey, moi c\'est Matteo.',
+  headline: 'Diplômé en développement d\'applications, étudiant à HEC Liège',
   description:
-    'Diplome en developpement d applications (informatique de gestion), je combine vision produit et execution technique pour creer des solutions utiles, lisibles et performantes.',
-  location: 'Liege, Belgique',
+    'Je combine vision produit et exécution technique pour créer des solutions utiles, lisibles et performantes.',
+  location: 'Liège, Belgique',
   profileImage,
   ctaPrimary: {
     label: 'Voir mes projets',
@@ -40,7 +40,7 @@ export const heroContent = {
   },
   highlights: [
     { label: 'Formation actuelle', value: 'Master en sciences de gestion' },
-    { label: 'Base academique', value: 'Diplome dev apps 2025' },
+    { label: 'Base académique', value: 'Diplôme dev apps 2025' },
     { label: 'Approche', value: 'Product + Tech' }
   ]
 }
@@ -49,20 +49,20 @@ export const skillGroups = [
   {
     id: 'tech',
     title: 'Technologies',
-    description: 'Les technos que j utilise le plus sur mes projets actuels.',
+    description: 'Les technos que j\'utilise le plus sur mes projets actuels.',
     skills: [
       { name: 'React', level: 75 },
       { name: 'SQL / MySQL', level: 90 },
       { name: 'Java', level: 80 },
       { name: 'C#', level: 80 },
       { name: 'JavaScript', level: 74 },
-      { name: 'Tailwind CSS', level: 82 },
+      { name: 'Tailwind CSS', level: 82 }
     ]
   },
   {
     id: 'project-types',
     title: 'Types de projets',
-    description: 'Formats de projets sur lesquels je travaille regulierement.',
+    description: 'Formats de projets sur lesquels je travaille régulièrement.',
     skills: [
       { name: 'Web', level: 92 },
       { name: 'Analyse fonctionnelle', level: 82 },
@@ -75,9 +75,9 @@ export const skillGroups = [
     title: 'Langues',
     description: 'Communication fluide dans un contexte scolaire et professionnel.',
     skills: [
-      { name: 'Francais', level: 100 },
+      { name: 'Français', level: 100 },
       { name: 'Anglais', level: 86 },
-      { name: 'Neerlandais', level: 70 }
+      { name: 'Néerlandais', level: 70 }
     ]
   }
 ]
@@ -86,9 +86,9 @@ export const projects = [
   {
     id: 'liege-kots',
     title: 'Liège Kots',
-    subtitle: 'Plateforme web pour logements et disponibilites',
+    subtitle: 'Plateforme web pour logements et disponibilités',
     description:
-      'Site web realise en React, Tailwind et SQL pour presenter les kots d un proprietaire et indiquer clairement leur disponibilite.',
+      'Site web réalisé en React, Tailwind et SQL pour présenter les kots d\'un propriétaire et indiquer clairement leur disponibilité.',
     logo: liegeKotsLogoLight,
     logoLight: liegeKotsLogoLight,
     logoDark: liegeKotsLogoDark,
@@ -97,62 +97,62 @@ export const projects = [
     stack: ['React', 'Tailwind CSS', 'SQL'],
     highlights: [
       'Structuration claire des logements et de leur statut',
-      'Interface responsive pensee pour mobile et desktop',
+      'Interface responsive pensée pour mobile et desktop',
       'Centralisation des informations dans une base SQL'
     ],
     gallery: [
-      { src: liegeKotsGalleryOne, alt: 'Version desktop du site Liege Kots' },
-      { src: liegeKotsGalleryTwo, alt: 'Version mobile du site Liege Kots' }
+      { src: liegeKotsGalleryOne, alt: 'Version desktop du site Liège Kots' },
+      { src: liegeKotsGalleryTwo, alt: 'Version mobile du site Liège Kots' }
     ]
   },
   {
     id: 'hec-liege',
-    title: 'HEC Liege',
+    title: 'HEC Liège',
     subtitle: 'Master en sciences de gestion',
     description:
-      'Parcours axe sur la decision business, la structuration de priorites et la gestion de projets en lien avec des enjeux concrets.',
+      'Parcours axé sur la décision business, la structuration de priorités et la gestion de projets en lien avec des enjeux concrets.',
     logo: hecLiege,
-    stack: ['Analyse financiere', 'Gestion de projet', 'Strategie business', 'Negociation', 'Priorisation produit'],
+    stack: ['Analyse financière', 'Gestion de projet', 'Stratégie business', 'Négociation', 'Priorisation produit'],
     highlights: [
-      'Analyse de scenarios et aide a la decision',
-      'Structuration des priorites selon valeur et impact',
-      'Vision business complementaire a mon profil technique'
+      'Analyse de scénarios et aide à la décision',
+      'Structuration des priorités selon valeur et impact',
+      'Vision business complémentaire à mon profil technique'
     ]
   },
   {
     id: 'helmo-projects',
     title: 'Helmo',
-    subtitle: 'Travaux academiques et prototypes applicatifs',
+    subtitle: 'Travaux académiques et prototypes applicatifs',
     description:
-      'Serie de projets scolaires orientes architecture logicielle, modelisation de donnees et interfaces utilitaires.',
+      'Série de projets scolaires orientés architecture logicielle, modélisation de données et interfaces utilitaires.',
     logo: helmoLogo,
-    stack: ['C#', 'Java', 'MySQL','UML','PHP','HTML/CSS','JavaScript','Python'],
+    stack: ['C#', 'Java', 'MySQL', 'UML', 'PHP', 'HTML/CSS', 'JavaScript', 'Python'],
     highlights: [
-      'Implementation de logique metier robuste',
-      'Structuration des donnees et schemas relationnels',
-      'Prototypage d interfaces pour mobile et desktop'
+      'Implémentation de logique métier robuste',
+      'Structuration des données et schémas relationnels',
+      'Prototypage d\'interfaces pour mobile et desktop'
     ],
     gallery: [
       { src: helmoGalleryOne, alt: 'Prototype remboursement fusee' },
-      { src: helmoGalleryTwo, alt: 'Modele conceptuel de donnees' },
+      { src: helmoGalleryTwo, alt: 'Modèle conceptuel de données' },
       { src: helmoGalleryThree, alt: 'Vue mobile applicative' }
     ],
     video: {
       src: helmoVideo,
-      title: 'Demonstration projet scolaire'
+      title: 'Démonstration projet scolaire'
     }
   },
   {
     id: 'erens-scripts',
     title: "Eren's Scripts",
-    subtitle: 'Creation de contenu personnalise pour jeux video',
+    subtitle: 'Création de contenu personnalisé pour jeux vidéo',
     description:
-      'Conception de scripts et de mini experiences immersives pour differents environnements de jeu avec un focus sur la personnalisation.',
+      'Conception de scripts et de mini expériences immersives pour différents environnements de jeu, avec un focus sur la personnalisation.',
     logo: erenLogo,
     stack: ['Lua', 'JavaScript', 'SQL'],
     highlights: [
-      'Creation de fonctionnalites gameplay sur mesure',
-      'Direction artistique de l ambience visuelle',
+      'Création de fonctionnalités gameplay sur mesure',
+      'Direction artistique de l\'ambiance visuelle',
       'Optimisation du confort joueur et du rythme'
     ],
     gallery: [
@@ -162,7 +162,7 @@ export const projects = [
     ],
     video: {
       src: erenVideo,
-      title: 'Demonstration Eren scripts'
+      title: 'Démonstration Eren scripts'
     }
   }
 ]
@@ -170,9 +170,9 @@ export const projects = [
 export const contactContent = {
   heading: 'Parlons de ton prochain projet',
   description:
-    'Disponible pour echanger autour de projets web, produit et collaborations tech.',
+    'Disponible pour échanger autour de projets web, produit et collaborations tech.',
   email: 'matteorober@gmail.com',
   linkedinUrl: 'https://www.linkedin.com/in/matt%C3%A9o-rober-163401251/',
   cvUrl: '/CV_Matteo_Rober_FR.pdf',
-  location: 'Liege, Belgique'
+  location: 'Liège, Belgique'
 }
