@@ -21,7 +21,17 @@
 
         <p class="theme-text-soft mt-2 text-sm">{{ group.description }}</p>
 
-        <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div v-if="group.display === 'tags'" class="mt-5 flex flex-wrap gap-2">
+          <span
+            v-for="skill in group.skills"
+            :key="`${group.id}-${skill.name}`"
+            class="theme-chip rounded-md px-3 py-1.5 text-sm font-semibold"
+          >
+            {{ skill.name }}
+          </span>
+        </div>
+
+        <div v-else class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <SkillCard v-for="skill in group.skills" :key="`${group.id}-${skill.name}`" :skill="skill" />
         </div>
       </article>

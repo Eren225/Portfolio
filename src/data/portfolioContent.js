@@ -1,4 +1,5 @@
 import profileImage from '@/components/images/matteo.jpg'
+import hecLiege from '@/components/images/hec_liege.png'
 import liegeKotsLogoLight from '@/components/images/logo_no_bg.webp'
 import liegeKotsLogoDark from '@/components/images/logo_no_bg_white.webp'
 import liegeKotsGalleryOne from '@/components/images/liegekots_pc.png'
@@ -102,6 +103,20 @@ export const projects = [
     gallery: [
       { src: liegeKotsGalleryOne, alt: 'Version desktop du site Liege Kots' },
       { src: liegeKotsGalleryTwo, alt: 'Version mobile du site Liege Kots' }
+    ]
+  },
+  {
+    id: 'hec-liege',
+    title: 'HEC Liege',
+    subtitle: 'Master en sciences de gestion',
+    description:
+      'Parcours axe sur la decision business, la structuration de priorites et la gestion de projets en lien avec des enjeux concrets.',
+    logo: hecLiege,
+    stack: ['Analyse financiere', 'Gestion de projet', 'Strategie business', 'Negociation', 'Priorisation produit'],
+    highlights: [
+      'Analyse de scenarios et aide a la decision',
+      'Structuration des priorites selon valeur et impact',
+      'Vision business complementaire a mon profil technique'
     ]
   },
   {
