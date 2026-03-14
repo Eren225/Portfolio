@@ -1,1 +1,216 @@
 @import "tailwindcss";
+
+@font-face {
+	font-family: 'EuropaGrotesk';
+	src: url('./fonts/EuropaGroteskSH-DemBold.otf') format('opentype');
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'GroteskMedium';
+	src: url('./fonts/Grotesk-Medium.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'AwanZaman';
+	src: url('./fonts/AwanZaman%20Regular.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+}
+
+:root {
+	color-scheme: light dark;
+	--bg-main: #f3f5f9;
+	--bg-accent: #e9eef5;
+	--text-main: #0f172a;
+	--text-soft: #334155;
+	--text-muted: #64748b;
+	--surface-main: #ffffff;
+	--surface-soft: #f8fafc;
+	--surface-strong: #eef2f7;
+	--surface-border: rgba(15, 23, 42, 0.14);
+	--chip-bg: rgba(15, 23, 42, 0.04);
+	--chip-hover: rgba(15, 23, 42, 0.08);
+	--primary-bg: #0f172a;
+	--primary-bg-hover: #1e293b;
+	--primary-text: #f8fafc;
+	--overlay: rgba(15, 23, 42, 0.78);
+	--shadow-soft: 0 18px 42px -34px rgba(15, 23, 42, 0.24);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-main: #0d1422;
+		--bg-accent: #111a2b;
+		--text-main: #e5e7eb;
+		--text-soft: #cbd5e1;
+		--text-muted: #94a3b8;
+		--surface-main: #131d2d;
+		--surface-soft: #182335;
+		--surface-strong: #202c42;
+		--surface-border: rgba(148, 163, 184, 0.24);
+		--chip-bg: rgba(226, 232, 240, 0.06);
+		--chip-hover: rgba(226, 232, 240, 0.12);
+		--primary-bg: #e2e8f0;
+		--primary-bg-hover: #f8fafc;
+		--primary-text: #0f172a;
+		--overlay: rgba(2, 6, 12, 0.82);
+		--shadow-soft: 0 18px 42px -34px rgba(2, 6, 12, 0.82);
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	color: var(--text-main);
+	background: linear-gradient(180deg, var(--bg-main), var(--bg-accent));
+	font-family:
+		'AwanZaman',
+		'Segoe UI',
+		Tahoma,
+		Geneva,
+		Verdana,
+		sans-serif;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+#app {
+	min-height: 100vh;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.font-display {
+	font-family:
+		'EuropaGrotesk',
+		'GroteskMedium',
+		'Segoe UI',
+		Tahoma,
+		Geneva,
+		Verdana,
+		sans-serif;
+	letter-spacing: 0.015em;
+}
+
+.section-anchor {
+	scroll-margin-top: 94px;
+}
+
+.section-shell {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid var(--surface-border);
+	border-radius: 1rem;
+	background: var(--surface-main);
+	box-shadow: var(--shadow-soft);
+}
+
+.section-shell::before {
+	content: none;
+	position: static;
+	inset: auto;
+	background: none;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.app-shell {
+	background: linear-gradient(180deg, var(--bg-main), var(--bg-accent));
+}
+
+.theme-nav {
+	background: var(--surface-main);
+}
+
+.theme-surface-soft {
+	background: var(--surface-soft);
+	border-color: var(--surface-border);
+}
+
+.theme-surface-strong {
+	background: var(--surface-strong);
+	border-color: var(--surface-border);
+}
+
+.theme-border {
+	border-color: var(--surface-border);
+}
+
+.theme-text {
+	color: var(--text-main);
+}
+
+.theme-text-soft {
+	color: var(--text-soft);
+}
+
+.theme-text-muted {
+	color: var(--text-muted);
+}
+
+.theme-badge {
+	background: var(--chip-bg);
+	border: 1px solid var(--surface-border);
+	color: var(--text-soft);
+}
+
+.theme-chip {
+	background: var(--chip-bg);
+	border: 1px solid var(--surface-border);
+	color: var(--text-soft);
+}
+
+.theme-chip:hover {
+	background: var(--chip-hover);
+}
+
+.theme-button-primary {
+	background: var(--primary-bg);
+	color: var(--primary-text);
+	border: 1px solid transparent;
+}
+
+.theme-button-primary:hover {
+	background: var(--primary-bg-hover);
+}
+
+.theme-button-secondary {
+	background: var(--chip-bg);
+	color: var(--text-main);
+	border: 1px solid var(--surface-border);
+}
+
+.theme-button-secondary:hover {
+	background: var(--chip-hover);
+}
+
+.theme-overlay {
+	background: var(--overlay);
+}
+
+.theme-shadow {
+	box-shadow: var(--shadow-soft);
+}
+
+::selection {
+	background: var(--chip-hover);
+	color: var(--text-main);
+}

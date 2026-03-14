@@ -1,53 +1,55 @@
 <template>
-  <div class="text-center p-10">
-    <h1 class="text-4xl font-bold text-white mb-8">Contact</h1>
+  <div class="section-shell p-5 sm:p-8 md:p-10">
+    <SectionHeading eyebrow="Contact" :title="contactContent.heading" :description="contactContent.description" />
 
-    <!-- Boutons pour bureau (non mobile) -->
-    <div class="mt-10 space-x-6" v-if="!isMobile">
-      <!-- Bouton pour ouvrir le CV -->
-      <a href="/CV_Matteo_Rober_FR.pdf" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
-        Ouvrir mon CV
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <a
+        :href="contactContent.cvUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="theme-surface-soft theme-border group rounded-xl border p-4 transition hover:-translate-y-0.5 hover:bg-[var(--surface-strong)]"
+      >
+        <div class="flex items-center justify-between">
+          <h3 class="font-display theme-text text-xl">Mon CV</h3>
+          <Download class="theme-text-soft h-5 w-5" aria-hidden="true" />
+        </div>
+        <p class="theme-text-soft mt-3 text-sm">Version complete en PDF.</p>
       </a>
 
-      <!-- Bouton pour envoyer un email -->
-      <a href="mailto:m.rober@student.helmo.be" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
-        Me contacter par email
+      <a
+        :href="`mailto:${contactContent.email}`"
+        class="theme-surface-soft theme-border group rounded-xl border p-4 transition hover:-translate-y-0.5 hover:bg-[var(--surface-strong)]"
+      >
+        <div class="flex items-center justify-between">
+          <h3 class="font-display theme-text text-xl">Email direct</h3>
+          <Mail class="theme-text-soft h-5 w-5" aria-hidden="true" />
+        </div>
+        <p class="theme-text-soft mt-3 break-all text-sm">{{ contactContent.email }}</p>
       </a>
 
-      <!-- Bouton pour LinkedIn -->
-      <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-transform transform hover:scale-105 inline-block">
-        Mon LinkedIn
+      <a
+        :href="contactContent.linkedinUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="theme-surface-soft theme-border group rounded-xl border p-4 transition hover:-translate-y-0.5 hover:bg-[var(--surface-strong)] sm:col-span-2 lg:col-span-1"
+      >
+        <div class="flex items-center justify-between">
+          <h3 class="font-display theme-text text-xl">LinkedIn</h3>
+          <Linkedin class="theme-text-soft h-5 w-5" aria-hidden="true" />
+        </div>
+        <p class="theme-text-soft mt-3 text-sm">Profil pro et parcours.</p>
       </a>
+    </div>
+
+    <div class="theme-surface-strong theme-border theme-text-soft mt-6 flex flex-wrap items-center gap-3 rounded-xl border p-4 text-sm">
+      <MessageSquare class="theme-text-soft h-4 w-4" aria-hidden="true" />
+      <span>Base a {{ contactContent.location }} - ouvert aux collaborations.</span>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Contact',
-  data() {
-    return {
-      isMobile: false // Suivi si l'utilisateur est sur mobile
-    };
-  },
-  mounted() {
-    // Détecte si l'utilisateur est sur mobile
-    this.isMobile = this.detectMobile();
-    
-    // Redirige vers le CV si l'utilisateur est sur mobile
-    if (this.isMobile) {
-      window.location.href = '/CV_Matteo_Rober_FR.pdf';
-    }
-  },
-  methods: {
-    // Fonction pour détecter si l'utilisateur est sur un appareil mobile
-    detectMobile() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
-  }
-}
+<script setup>
+import { Download, MessageSquare, Linkedin, Mail } from 'lucide-vue-next'
+import SectionHeading from '@/components/ui/SectionHeading.vue'
+import { contactContent } from '@/data/portfolioContent'
 </script>
-
-<style scoped>
-/* Style personnalisé */
-</style>

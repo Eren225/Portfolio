@@ -1,110 +1,99 @@
 <template>
-  <nav
-    class="navbar fixed top-0 left-0 bg-stone-900 bg-opacity-40 backdrop-blur-md z-50 p-4 w-full"
-  >
-    <!-- Menu hamburger pour les petits écrans -->
-    <div class="flex justify-between items-center md:hidden">
-      <h1 class="text-white font-bold text-xl">Menu</h1>
-      <button @click="isMenuOpen = !isMenuOpen" class="text-white">
-        <!-- Icône du menu hamburger -->
-        <img src="../components/icons/bars.png" alt="ouvrir menu" />
+  <nav class="theme-nav theme-border fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl">
+    <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      <button
+        type="button"
+        class="theme-chip group inline-flex items-center gap-2 rounded-lg px-4 py-1.5 text-left transition"
+        @click="scrollToSection('about')"
+      >
+        <Code2 class="theme-text-soft h-4 w-4 transition group-hover:scale-110" aria-hidden="true" />
+        <span class="font-display theme-text text-lg tracking-wide">Matteo Rober</span>
       </button>
+
+      <button
+        type="button"
+        class="theme-chip inline-flex h-10 w-10 items-center justify-center rounded-lg transition md:hidden"
+        :aria-expanded="isMenuOpen"
+        aria-controls="mobile-nav"
+        @click="isMenuOpen = !isMenuOpen"
+      >
+        <Menu v-if="!isMenuOpen" class="h-5 w-5" aria-hidden="true" />
+        <X v-else class="h-5 w-5" aria-hidden="true" />
+        <span class="sr-only">Afficher la navigation</span>
+      </button>
+
+      <ul class="hidden items-center gap-2 md:flex">
+        <li v-for="link in links" :key="link.id">
+          <button
+            type="button"
+            class="theme-text-soft rounded-lg px-4 py-2 text-sm font-semibold transition hover:bg-[var(--chip-bg)] hover:text-[var(--text-main)]"
+            @click="scrollToSection(link.id)"
+          >
+            {{ link.label }}
+          </button>
+        </li>
+      </ul>
     </div>
 
-    <!-- Liste des liens de navigation -->
-    <ul
-      :class="{ block: isMenuOpen, hidden: !isMenuOpen }"
-      class="md:flex justify-end space-x-8 pr-10 mt-4 md:mt-0 md:space-y-0 space-y-4 md:space-y-0 hidden"
-    >
-      <li>
-        <a href="#about" class="nav-link" @click.prevent="scrollToSection('about')">À propos</a>
-      </li>
-      <li>
-        <a href="#skills" class="nav-link" @click.prevent="scrollToSection('skills')"
-          >Compétences</a
-        >
-      </li>
-      <li>
-        <a href="#projects" class="nav-link" @click.prevent="scrollToSection('projects')"
-          >Projets</a
-        >
-      </li>
-      <li>
-        <a href="#contact" class="nav-link" @click.prevent="scrollToSection('contact')">Contact</a>
-      </li>
-    </ul>
+    <transition name="menu-fade">
+      <div
+        v-if="isMenuOpen"
+        id="mobile-nav"
+        class="theme-surface-soft theme-border border-t md:hidden"
+      >
+        <ul class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-4 sm:px-6">
+          <li v-for="link in links" :key="`mobile-${link.id}`">
+            <button
+              type="button"
+              class="theme-chip flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-semibold transition"
+              @click="scrollToSection(link.id)"
+            >
+              <span>{{ link.label }}</span>
+              <ChevronRight class="theme-text-muted h-4 w-4" aria-hidden="true" />
+            </button>
+          </li>
+        </ul>
+      </div>
+    </transition>
   </nav>
 </template>
 
-<script>
-export default {
-  name: 'Navbar',
-  data() {
-    return {
-      isMenuOpen: false // Variable pour suivre l'état du menu hamburger
-    }
-  },
-  methods: {
-    scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId)
-      if (section) {
-        const yOffset = -30 // Décalage de 10px pour laisser un espace
-        const y = section.getBoundingClientRect().top + window.scrollY + yOffset
+<script setup>
+import { ref } from 'vue'
+import { ChevronRight, Code2, Menu, X } from 'lucide-vue-next'
 
-        window.scrollTo({ top: y, behavior: 'smooth' })
-        this.isMenuOpen = false // Ferme le menu après avoir cliqué sur un lien
-      }
-    }
+defineProps({
+  links: {
+    type: Array,
+    default: () => []
   }
+})
+
+const isMenuOpen = ref(false)
+
+function scrollToSection(sectionId) {
+  const section = document.getElementById(sectionId)
+  if (!section) {
+    return
+  }
+
+  const navbarOffset = 92
+  const top = section.getBoundingClientRect().top + window.scrollY - navbarOffset
+
+  window.scrollTo({ top, behavior: 'smooth' })
+  isMenuOpen.value = false
 }
 </script>
 
 <style scoped>
-@reference "tailwindcss";
-/* Navbar occupe toute la largeur */
-.navbar {
-  width: 100%;
-  box-sizing: border-box;
+.menu-fade-enter-active,
+.menu-fade-leave-active {
+  transition: all 0.2s ease;
 }
 
-.nav-link {
-  @apply text-white font-bold text-lg relative transition-colors duration-300 block md:inline-block; /* Block pour mobile, inline pour desktop */
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #00bfff; /* Couleur bleu vif */
-  left: 0;
-  bottom: -5px;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.nav-link:hover {
-  @apply text-cyan-400;
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* Scrollbar par défaut */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden;
-  box-sizing: border-box;
-}
-
-/* Menu hamburger */
-button {
-  @apply focus:outline-none;
+.menu-fade-enter-from,
+.menu-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
 }
 </style>
