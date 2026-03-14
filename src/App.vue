@@ -45,35 +45,39 @@ export default {
   data() {
     return {
       isMobile: false // Suivre si l'utilisateur est sur mobile
-    };
+    }
   },
   mounted() {
     // Détecte si l'utilisateur est sur mobile
-    this.isMobile = this.detectMobile();
-    
+    this.isMobile = this.detectMobile()
+
     // Redirige vers le CV si l'utilisateur est sur mobile après 3 secondes
     if (this.isMobile) {
       setTimeout(() => {
-        window.location.href = '/CV_Matteo_Rober_FR.pdf';
-      }, 3000); // Délai de 3 secondes avant la redirection
+        window.location.href = '/CV_Matteo_Rober_FR.pdf'
+      }, 3000) // Délai de 3 secondes avant la redirection
     }
   },
   methods: {
     // Fonction pour détecter si l'utilisateur est sur un appareil mobile
     detectMobile() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
     }
   }
 }
 </script>
 
 <style>
-html, body {
+@reference "tailwindcss";
+html,
+body {
   @apply m-0 p-0 h-full;
 }
 
 body {
-  background-color: rgb(33,33,33);
+  background-color: rgb(33, 33, 33);
 }
 
 /* Appliquer les styles de fond */
