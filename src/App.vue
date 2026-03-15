@@ -20,6 +20,7 @@
         <Contact />
       </section>
     </main>
+    <Analytics />
   </div>
 </template>
 
@@ -32,4 +33,3 @@ import Contact from '@/views/Contact.vue'
 import { Analytics } from "@vercel/analytics/vue"
 import { navigationLinks } from '@/data/portfolioContent'
 </script>
-<Analytics />
