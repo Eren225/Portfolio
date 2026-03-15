@@ -29,5 +29,7 @@ import About from '@/views/About.vue'
 import Skills from '@/views/Skills.vue'
 import Projects from '@/views/Projects.vue'
 import Contact from '@/views/Contact.vue'
+import { Analytics } from "@vercel/analytics/vue"
 import { navigationLinks } from '@/data/portfolioContent'
 </script>
+<Analytics />
