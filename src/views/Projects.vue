@@ -1,9 +1,9 @@
 <template>
-  <div class="section-shell p-5 sm:p-8 md:p-10">
+  <div>
     <SectionHeading
-      eyebrow="Projets"
+      eyebrow="Expérience & projets"
       title="Du besoin métier à la solution"
-      description="Une sélection de projets web et applicatifs, avec un équilibre entre exécution technique et logique produit."
+      description="Expérience en entreprise, projet entrepreneurial et réalisations web."
     />
 
     <div class="mt-8 grid gap-6">

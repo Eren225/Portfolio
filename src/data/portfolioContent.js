@@ -1,7 +1,6 @@
 import profileImage from '@/components/images/matteo.jpg'
-import hecLiege from '@/components/images/hec_liege.png'
-import liegeKotsLogoLight from '@/components/images/logo_no_bg.webp'
-import liegeKotsLogoDark from '@/components/images/logo_no_bg_white.webp'
+import evsLogo from '@/components/images/evs.png'
+import liegeKotsLogo from '@/components/images/logo_no_bg.webp'
 import liegeKotsGalleryOne from '@/components/images/liegekots_pc.png'
 import liegeKotsGalleryTwo from '@/components/images/liegekots_mobile.png'
 import erenLogo from '@/components/images/logof.png'
@@ -15,23 +14,24 @@ import helmoGalleryTwo from '@/components/images/mcd.png'
 import helmoGalleryThree from '@/components/images/mobile.jpg'
 import helmoVideo from '@/components/images/puroguramu.mp4'
 
+export const brandName = 'Mattéo Rober'
+
 export const navigationLinks = [
   { id: 'about', label: 'À propos' },
-  { id: 'projects', label: 'Projets' },
+  { id: 'projects', label: 'Expérience & projets' },
   { id: 'skills', label: 'Compétences' },
   { id: 'contact', label: 'Contact' }
 ]
 
 export const heroContent = {
-  badge: 'Tech + business, disponible pour échanger',
-  greeting: 'Hey, moi c\'est Matteo.',
-  headline: 'Diplômé en développement d\'applications, étudiant à HEC Liège',
+  name: 'Mattéo Rober',
+  headline: 'Profil IT & business · Double formation en informatique et en sciences de gestion',
   description:
-    'Je combine vision produit et exécution technique pour créer des solutions utiles, lisibles et performantes.',
+    'J\'aime faire le lien entre les équipes techniques, les utilisateurs et le business : comprendre un besoin, le traduire clairement et suivre sa réalisation. Je suis de près l\'évolution du développement logiciel (IA générative, nouveaux outils, méthodes agiles) et je teste ces pratiques dans mes propres projets.',
   location: 'Liège, Belgique',
   profileImage,
   ctaPrimary: {
-    label: 'Voir mes projets',
+    label: 'Voir mon expérience',
     target: '#projects'
   },
   ctaSecondary: {
@@ -39,9 +39,14 @@ export const heroContent = {
     target: '/CV_Matteo_Rober_FR.pdf'
   },
   highlights: [
-    { label: 'Formation actuelle', value: 'Master en sciences de gestion' },
-    { label: 'Base académique', value: 'Diplôme dev apps 2025' },
-    { label: 'Approche', value: 'Product + Tech' }
+    {
+      label: 'Formation',
+      value: 'Master en sciences de gestion, HEC Liège (2025 – aujourd\'hui) · Bachelier en informatique de gestion, HELMo (2021 – 2025)'
+    },
+    {
+      label: 'Engagement',
+      value: 'Bénévole international, Association Essentia (HEC Liège)'
+    }
   ]
 }
 
@@ -49,25 +54,28 @@ export const skillGroups = [
   {
     id: 'tech',
     title: 'Technologies',
-    description: 'Les technos que j\'utilise le plus sur mes projets actuels.',
+    description: 'Les outils que j\'utilise en projet et en environnement R&D.',
     skills: [
-      { name: 'React', level: 75 },
-      { name: 'SQL / MySQL', level: 90 },
-      { name: 'Java', level: 80 },
-      { name: 'C#', level: 80 },
-      { name: 'JavaScript', level: 74 },
-      { name: 'Tailwind CSS', level: 82 }
+      { name: 'TypeScript' },
+      { name: 'React' },
+      { name: 'C#' },
+      { name: 'SQL / MySQL' },
+      { name: 'Git' },
+      { name: 'Monitoring' },
+      { name: 'Outils d\'IA générative' }
     ]
   },
   {
-    id: 'project-types',
-    title: 'Types de projets',
-    description: 'Formats de projets sur lesquels je travaille régulièrement.',
+    id: 'business',
+    title: 'Business & méthodes',
+    description: 'Comprendre un besoin, le traduire et suivre sa réalisation.',
     skills: [
-      { name: 'Web', level: 92 },
-      { name: 'Analyse fonctionnelle', level: 82 },
-      { name: 'Applications desktop (PC)', level: 77 },
-      { name: 'Applications mobile', level: 74 }
+      { name: 'Analyse des besoins' },
+      { name: 'Agile / Scrum' },
+      { name: 'Gestion de projet' },
+      { name: 'Relation client' },
+      { name: 'Communication' },
+      { name: 'Vulgarisation technique' }
     ]
   },
   {
@@ -75,23 +83,61 @@ export const skillGroups = [
     title: 'Langues',
     description: 'Communication fluide dans un contexte scolaire et professionnel.',
     skills: [
-      { name: 'Français', level: 100 },
-      { name: 'Anglais', level: 86 },
-      { name: 'Néerlandais', level: 70 }
+      { name: 'Français', level: 'Langue maternelle' },
+      { name: 'Anglais', level: 'Courant (C1)' },
+      { name: 'Néerlandais', level: 'Intermédiaire avancé (B2)' }
     ]
   }
 ]
 
 export const projects = [
   {
+    id: 'evs',
+    title: 'EVS Broadcast Equipment',
+    period: '2025',
+    subtitle: 'Stagiaire puis job étudiant · Recherche & Développement',
+    description:
+      'Au sein d\'une équipe R&D, suivi de la qualité d\'une application web et lien avec les développeurs.',
+    logo: evsLogo,
+    stack: ['TypeScript', 'React', 'C#', 'Monitoring', 'Agile / Scrum'],
+    highlights: [
+      'Monitoring de l\'application (front TypeScript/React, back C#) : suivi et analyse des anomalies',
+      'Communication avec les développeurs pour remonter et faire résoudre les problèmes',
+      'Participation aux rituels agiles (daily, sprints)'
+    ]
+  },
+  {
+    id: 'erens-scripts',
+    title: "Eren's Scripts",
+    period: '2021 – 2025',
+    subtitle: 'Fondateur & gestionnaire de projet · Contenu personnalisé pour jeux vidéo',
+    description:
+      'Scripts et mini expériences immersives pour différents environnements de jeu, avec un focus sur la personnalisation.',
+    logo: erenLogo,
+    stack: ['Gestion d\'équipe', 'Relation client', 'Lua', 'JavaScript', 'SQL'],
+    highlights: [
+      { strong: 'Pilotage d\'une équipe de 10 personnes', text: ' : répartition des tâches, priorisation, suivi de la qualité' },
+      'Relation client : recueil des besoins, support et adaptation des solutions',
+      'Création de contenus sur mesure et de solutions web'
+    ],
+    gallery: [
+      { src: erenGalleryOne, alt: 'Capture gameplay restaurant' },
+      { src: erenGalleryTwo, alt: 'Interface téléphone en jeu' },
+      { src: erenGalleryThree, alt: 'Décor mural roleplay' }
+    ],
+    video: {
+      src: erenVideo,
+      title: 'Démonstration Eren\'s Scripts'
+    }
+  },
+  {
     id: 'liege-kots',
     title: 'Liège Kots',
+    period: '2025',
     subtitle: 'Plateforme web pour logements et disponibilités',
     description:
       'Site web réalisé en React, Tailwind et SQL pour présenter les kots d\'un propriétaire et indiquer clairement leur disponibilité.',
-    logo: liegeKotsLogoLight,
-    logoLight: liegeKotsLogoLight,
-    logoDark: liegeKotsLogoDark,
+    logo: liegeKotsLogo,
     websiteUrl: 'https://liegekots.be',
     websiteLabel: 'liegekots.be',
     stack: ['React', 'Tailwind CSS', 'SQL'],
@@ -106,23 +152,10 @@ export const projects = [
     ]
   },
   {
-    id: 'hec-liege',
-    title: 'HEC Liège',
-    subtitle: 'Master en sciences de gestion',
-    description:
-      'Parcours axé sur la décision business, la structuration de priorités et la gestion de projets en lien avec des enjeux concrets.',
-    logo: hecLiege,
-    stack: ['Analyse financière', 'Gestion de projet', 'Stratégie business', 'Négociation', 'Priorisation produit'],
-    highlights: [
-      'Analyse de scénarios et aide à la décision',
-      'Structuration des priorités selon valeur et impact',
-      'Vision business complémentaire à mon profil technique'
-    ]
-  },
-  {
     id: 'helmo-projects',
-    title: 'Helmo',
-    subtitle: 'Travaux académiques et prototypes applicatifs',
+    title: 'Projets HELMo',
+    period: '2021 – 2025',
+    subtitle: 'Travaux et prototypes applicatifs',
     description:
       'Série de projets scolaires orientés architecture logicielle, modélisation de données et interfaces utilitaires.',
     logo: helmoLogo,
@@ -133,7 +166,7 @@ export const projects = [
       'Prototypage d\'interfaces pour mobile et desktop'
     ],
     gallery: [
-      { src: helmoGalleryOne, alt: 'Prototype remboursement fusee' },
+      { src: helmoGalleryOne, alt: 'Prototype de remboursement' },
       { src: helmoGalleryTwo, alt: 'Modèle conceptuel de données' },
       { src: helmoGalleryThree, alt: 'Vue mobile applicative' }
     ],
@@ -141,38 +174,13 @@ export const projects = [
       src: helmoVideo,
       title: 'Démonstration projet scolaire'
     }
-  },
-  {
-    id: 'erens-scripts',
-    title: "Eren's Scripts",
-    subtitle: 'Création de contenu personnalisé pour jeux vidéo',
-    description:
-      'Conception de scripts et de mini expériences immersives pour différents environnements de jeu, avec un focus sur la personnalisation.',
-    logo: erenLogo,
-    stack: ['Lua', 'JavaScript', 'SQL'],
-    highlights: [
-      'Création de fonctionnalités gameplay sur mesure',
-      'Direction artistique de l\'ambiance visuelle',
-      'Optimisation du confort joueur et du rythme'
-    ],
-    gallery: [
-      { src: erenGalleryOne, alt: 'Capture gameplay restaurant' },
-      { src: erenGalleryTwo, alt: 'Interface telephone in game' },
-      { src: erenGalleryThree, alt: 'Decor mural roleplay' }
-    ],
-    video: {
-      src: erenVideo,
-      title: 'Démonstration Eren scripts'
-    }
   }
 ]
 
 export const contactContent = {
-  heading: 'Parlons de ton prochain projet',
-  description:
-    'Disponible pour échanger autour de projets web, produit et collaborations tech.',
+  heading: 'Me contacter',
+  description: 'Un échange, une opportunité, une question : n\'hésitez pas à m\'écrire ou à consulter mon CV.',
   email: 'matteorober@gmail.com',
-  linkedinUrl: 'https://www.linkedin.com/in/matt%C3%A9o-rober-163401251/',
-  cvUrl: '/CV_Matteo_Rober_FR.pdf',
-  location: 'Liège, Belgique'
+  linkedinUrl: 'https://www.linkedin.com/in/matteo-rober',
+  cvUrl: '/CV_Matteo_Rober_FR.pdf'
 }

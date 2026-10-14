@@ -1,56 +1,51 @@
 <template>
-  <article class="theme-surface-soft theme-border theme-shadow relative overflow-hidden rounded-2xl border p-5 sm:p-7">
-
-    <div class="flex flex-col gap-6 lg:flex-row">
-      <picture class="theme-surface-strong theme-border h-24 w-full rounded-xl border p-3 sm:h-28 lg:h-32 lg:w-48">
-        <source v-if="project.logoDark" media="(prefers-color-scheme: dark)" :srcset="project.logoDark" />
-        <img
-          :src="project.logoLight || project.logo"
-          :alt="`${project.title} logo`"
-          class="h-full w-full object-contain"
-        />
-      </picture>
-
-      <div class="flex-1 space-y-4">
-        <div>
-          <h3 class="font-display theme-text text-2xl sm:text-3xl">{{ project.title }}</h3>
-          <p class="theme-text-muted mt-1 text-sm font-medium uppercase tracking-[0.12em]">
-            {{ project.subtitle }}
-          </p>
-          <p class="theme-text-soft mt-3 text-sm leading-relaxed sm:text-base">
-            {{ project.description }}
-          </p>
-
-          <a
-            v-if="project.websiteUrl"
-            :href="project.websiteUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="theme-button-primary mt-4 inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold"
-          >
-            Visiter {{ project.websiteLabel || 'le site' }}
-            <ExternalLink class="h-4 w-4" aria-hidden="true" />
-          </a>
-        </div>
-
-        <ul class="theme-text-soft grid gap-2 text-sm">
-          <li v-for="highlight in project.highlights" :key="highlight" class="flex items-start gap-2">
-            <span class="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--text-muted)]"></span>
-            <span>{{ highlight }}</span>
-          </li>
-        </ul>
-
-        <div class="flex flex-wrap gap-2">
-          <span
-            v-for="tech in project.stack"
-            :key="tech"
-            class="theme-chip rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-[0.1em]"
-          >
-            {{ tech }}
-          </span>
-        </div>
+  <article class="rounded-lg border border-line bg-surface p-5 sm:p-7">
+    <div class="flex items-start gap-4">
+      <div
+        v-if="project.logo"
+        class="flex h-14 w-14 shrink-0 items-center justify-center rounded-md border border-line bg-tint p-2"
+      >
+        <img :src="project.logo" :alt="`Logo ${project.title}`" class="h-full w-full object-contain" />
+      </div>
+      <div class="min-w-0">
+        <p v-if="project.period" class="text-xs font-semibold uppercase tracking-[0.12em] text-accent">
+          {{ project.period }}
+        </p>
+        <h3 class="text-xl font-semibold tracking-tight text-ink">{{ project.title }}</h3>
+        <p class="mt-0.5 text-sm text-muted">{{ project.subtitle }}</p>
       </div>
     </div>
+
+    <p class="mt-5 text-base leading-relaxed text-body">{{ project.description }}</p>
+
+    <ul class="mt-4 grid gap-2 text-sm text-body">
+      <li v-for="highlight in project.highlights" :key="highlight.text ?? highlight" class="flex items-start gap-3">
+        <span class="mt-2.5 h-px w-3 shrink-0 bg-accent" aria-hidden="true"></span>
+        <span v-if="typeof highlight === 'string'">{{ highlight }}</span>
+        <span v-else><strong class="font-semibold text-ink">{{ highlight.strong }}</strong>{{ highlight.text }}</span>
+      </li>
+    </ul>
+
+    <ul class="mt-5 flex flex-wrap gap-2" aria-label="Technologies">
+      <li
+        v-for="tech in project.stack"
+        :key="tech"
+        class="rounded-md border border-line bg-tint px-2.5 py-1 text-xs font-medium text-body"
+      >
+        {{ tech }}
+      </li>
+    </ul>
+
+    <a
+      v-if="project.websiteUrl"
+      :href="project.websiteUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-5 inline-flex min-h-11 items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-hover"
+    >
+      Visiter {{ project.websiteLabel || 'le site' }}
+      <ExternalLink class="h-4 w-4" aria-hidden="true" />
+    </a>
 
     <div
       v-if="project.gallery?.length"
@@ -61,45 +56,54 @@
         v-for="image in project.gallery"
         :key="image.src"
         type="button"
-        class="theme-border group relative overflow-hidden rounded-xl border"
+        class="group overflow-hidden rounded-md border border-line bg-tint"
+        :aria-label="`Agrandir : ${image.alt}`"
         @click="selectedImage = image"
       >
         <img
           :src="image.src"
           :alt="image.alt"
-          class="w-full object-cover transition duration-300 group-hover:scale-105"
+          loading="lazy"
+          class="w-full object-cover transition duration-300 group-hover:opacity-90"
           :class="project.gallery.length === 2 ? 'h-56 sm:h-64 lg:h-72' : 'h-28 sm:h-32'"
         />
       </button>
     </div>
 
-    <div v-if="project.video?.src" class="theme-surface-strong theme-border mt-6 rounded-xl border p-3">
-      <video controls class="w-full rounded-xl">
-        <source :src="project.video.src" type="video/mp4" />
-        Votre navigateur ne supporte pas la vidéo.
-      </video>
-    </div>
+    <video v-if="project.video?.src" controls preload="metadata" class="mt-6 w-full rounded-md border border-line">
+      <source :src="project.video.src" type="video/mp4" />
+      Votre navigateur ne supporte pas la vidéo.
+    </video>
 
     <div
       v-if="selectedImage"
-      class="theme-overlay fixed inset-0 z-[60] flex items-center justify-center p-4"
+      class="fixed inset-0 z-[60] flex items-center justify-center bg-ink/80 p-4"
+      role="dialog"
+      aria-modal="true"
+      :aria-label="selectedImage.alt"
       @click="selectedImage = null"
+      @keydown.esc="selectedImage = null"
     >
-      <figure class="max-w-3xl space-y-3" @click.stop>
-        <img
-          :src="selectedImage.src"
-          :alt="selectedImage.alt"
-          class="theme-border max-h-[75vh] w-full rounded-2xl border object-contain"
-        />
-        <figcaption class="theme-text-soft text-center text-sm">{{ selectedImage.alt }}</figcaption>
+      <figure class="relative max-w-3xl space-y-3" @click.stop>
+        <button
+          ref="closeButton"
+          type="button"
+          class="absolute right-2 top-2 inline-flex h-11 w-11 items-center justify-center rounded-md bg-surface text-ink shadow"
+          @click="selectedImage = null"
+        >
+          <X class="h-5 w-5" aria-hidden="true" />
+          <span class="sr-only">Fermer</span>
+        </button>
+        <img :src="selectedImage.src" :alt="selectedImage.alt" class="max-h-[75vh] w-full rounded-md bg-surface object-contain" />
+        <figcaption class="text-center text-sm text-white">{{ selectedImage.alt }}</figcaption>
       </figure>
     </div>
   </article>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { ExternalLink } from 'lucide-vue-next'
+import { nextTick, ref, watch } from 'vue'
+import { ExternalLink, X } from 'lucide-vue-next'
 
 defineProps({
   project: {
@@ -109,4 +113,12 @@ defineProps({
 })
 
 const selectedImage = ref(null)
+const closeButton = ref(null)
+
+watch(selectedImage, async (value) => {
+  if (value) {
+    await nextTick()
+    closeButton.value?.focus()
+  }
+})
 </script>

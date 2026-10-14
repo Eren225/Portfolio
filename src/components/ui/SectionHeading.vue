@@ -1,21 +1,16 @@
 <template>
-  <header class="space-y-4">
-    <p class="theme-badge inline-flex items-center gap-2 rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]">
-      <Terminal class="h-3.5 w-3.5" aria-hidden="true" />
-      {{ eyebrow }}
-    </p>
-    <h2 class="font-display theme-text text-3xl leading-tight sm:text-4xl md:text-5xl">
+  <header class="max-w-2xl space-y-3">
+    <p class="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{{ eyebrow }}</p>
+    <h2 class="text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl">
       {{ title }}
     </h2>
-    <p v-if="description" class="theme-text-soft max-w-2xl text-sm leading-relaxed sm:text-base">
+    <p v-if="description" class="text-base leading-relaxed text-body">
       {{ description }}
     </p>
   </header>
 </template>
 
 <script setup>
-import { Terminal } from 'lucide-vue-next'
-
 defineProps({
   eyebrow: {
     type: String,
