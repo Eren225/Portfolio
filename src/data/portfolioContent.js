@@ -1,5 +1,6 @@
 import profileImage from '@/components/images/matteo.jpg'
 import evsLogo from '@/components/images/evs.png'
+import hecLogo from '@/components/images/hec_liege.png'
 import liegeKotsLogo from '@/components/images/logo_no_bg.webp'
 import liegeKotsGalleryOne from '@/components/images/liegekots_pc.png'
 import liegeKotsGalleryTwo from '@/components/images/liegekots_mobile.png'
@@ -38,16 +39,7 @@ export const heroContent = {
     label: 'Ouvrir mon CV',
     target: '/CV_Matteo_Rober_FR.pdf'
   },
-  highlights: [
-    {
-      label: 'Formation',
-      value: 'Master en sciences de gestion, HEC Liège (2025 – aujourd\'hui) · Bachelier en informatique de gestion, HELMo (2021 – 2025)'
-    },
-    {
-      label: 'Engagement',
-      value: 'Bénévole international, Association Essentia (HEC Liège)'
-    }
-  ]
+  highlights: []
 }
 
 export const skillGroups = [
@@ -91,6 +83,28 @@ export const skillGroups = [
 ]
 
 export const projects = [
+  {
+    id: 'hec-liege',
+    title: 'HEC Liège',
+    period: '2025 – aujourd\'hui',
+    subtitle: 'Master en sciences de gestion',
+    description:
+      'Master généraliste en gestion, enseigné en grande partie en anglais : comprendre le fonctionnement d\'une organisation et proposer des solutions concrètes à des cas de gestion complexes.',
+    logo: hecLogo,
+    stack: [
+      'Strategy & Organizations',
+      'Leadership',
+      'Change Management',
+      'Management Information Systems',
+      'Management Analytics'
+    ],
+    highlights: [
+      'Stratégie, leadership et conduite du changement, étudiés à travers des cas concrets',
+      'Systèmes d\'information et analyse de données en gestion : le prolongement naturel de mon bachelier en informatique',
+      'Ateliers de compétences : communication, négociation, travail en équipe',
+      'Bénévole international et membre actif de l\'association Essentia : préparation de voyages volontaires, coordination logistique'
+    ]
+  },
   {
     id: 'evs',
     title: 'EVS Broadcast Equipment',
@@ -153,9 +167,9 @@ export const projects = [
   },
   {
     id: 'helmo-projects',
-    title: 'Projets HELMo',
+    title: 'HELMo',
     period: '2021 – 2025',
-    subtitle: 'Travaux et prototypes applicatifs',
+    subtitle: 'Bachelier en informatique de gestion · Travaux et prototypes applicatifs',
     description:
       'Série de projets scolaires orientés architecture logicielle, modélisation de données et interfaces utilitaires.',
     logo: helmoLogo,
