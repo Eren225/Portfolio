@@ -3,7 +3,7 @@
     <SectionHeading
       eyebrow="Expérience & projets"
       title="Du besoin métier à la solution"
-      description="Expérience en entreprise, projet entrepreneurial et réalisations web."
+      description="Formation, expérience en entreprise, projet entrepreneurial et réalisations web."
     />
 
     <div class="mt-8 grid gap-6">

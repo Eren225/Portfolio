@@ -38,7 +38,7 @@
         </a>
       </div>
 
-      <dl class="grid gap-x-8 gap-y-4 border-t border-line pt-6 sm:grid-cols-2">
+      <dl v-if="heroContent.highlights?.length" class="grid gap-x-8 gap-y-4 border-t border-line pt-6 sm:grid-cols-2">
         <div v-for="item in heroContent.highlights" :key="item.label">
           <dt class="text-xs font-medium uppercase tracking-[0.12em] text-muted">{{ item.label }}</dt>
           <dd class="mt-1 text-sm font-medium text-ink">{{ item.value }}</dd>
