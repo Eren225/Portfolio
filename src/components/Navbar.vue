@@ -1,18 +1,13 @@
 <template>
-  <nav class="theme-nav theme-border fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl">
-    <div class="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-      <button
-        type="button"
-        class="theme-chip group inline-flex items-center gap-2 rounded-lg px-4 py-1.5 text-left transition"
-        @click="scrollToSection('about')"
-      >
-        <Code2 class="theme-text-soft h-4 w-4 transition group-hover:scale-110" aria-hidden="true" />
-        <span class="font-display theme-text text-lg tracking-wide">Matteo Rober</span>
-      </button>
+  <header class="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+    <nav class="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-3 sm:px-8" aria-label="Navigation principale">
+      <a href="#about" class="text-base font-semibold tracking-tight text-ink" @click.prevent="scrollToSection('about')">
+        {{ brand }}
+      </a>
 
       <button
         type="button"
-        class="theme-chip inline-flex h-10 w-10 items-center justify-center rounded-lg transition md:hidden"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-md text-ink transition hover:bg-tint md:hidden"
         :aria-expanded="isMenuOpen"
         aria-controls="mobile-nav"
         @click="isMenuOpen = !isMenuOpen"
@@ -22,50 +17,50 @@
         <span class="sr-only">Afficher la navigation</span>
       </button>
 
-      <ul class="hidden items-center gap-2 md:flex">
+      <ul class="hidden items-center gap-1 md:flex">
         <li v-for="link in links" :key="link.id">
-          <button
-            type="button"
-            class="theme-text-soft rounded-lg px-4 py-2 text-sm font-semibold transition hover:bg-[var(--chip-bg)] hover:text-[var(--text-main)]"
-            @click="scrollToSection(link.id)"
+          <a
+            :href="`#${link.id}`"
+            class="rounded-md px-3 py-2 text-sm font-medium text-body transition hover:text-ink"
+            @click.prevent="scrollToSection(link.id)"
           >
             {{ link.label }}
-          </button>
+          </a>
         </li>
       </ul>
-    </div>
+    </nav>
 
     <transition name="menu-fade">
-      <div
-        v-if="isMenuOpen"
-        id="mobile-nav"
-        class="theme-surface-soft theme-border border-t md:hidden"
-      >
-        <ul class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-4 py-4 sm:px-6">
-          <li v-for="link in links" :key="`mobile-${link.id}`">
-            <button
-              type="button"
-              class="theme-chip flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-semibold transition"
-              @click="scrollToSection(link.id)"
+      <div v-if="isMenuOpen" id="mobile-nav" class="border-t border-line bg-paper md:hidden">
+        <ul class="mx-auto flex w-full max-w-5xl flex-col px-5 py-2 sm:px-8">
+          <li v-for="link in links" :key="`mobile-${link.id}`" class="border-b border-line last:border-b-0">
+            <a
+              :href="`#${link.id}`"
+              class="flex min-h-12 items-center justify-between py-3 text-base font-medium text-ink"
+              @click.prevent="scrollToSection(link.id)"
             >
-              <span>{{ link.label }}</span>
-              <ChevronRight class="theme-text-muted h-4 w-4" aria-hidden="true" />
-            </button>
+              {{ link.label }}
+              <ChevronRight class="h-4 w-4 text-muted" aria-hidden="true" />
+            </a>
           </li>
         </ul>
       </div>
     </transition>
-  </nav>
+  </header>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { ChevronRight, Code2, Menu, X } from 'lucide-vue-next'
+import { ChevronRight, Menu, X } from 'lucide-vue-next'
 
 defineProps({
   links: {
     type: Array,
     default: () => []
+  },
+  brand: {
+    type: String,
+    required: true
   }
 })
 
@@ -73,27 +68,25 @@ const isMenuOpen = ref(false)
 
 function scrollToSection(sectionId) {
   const section = document.getElementById(sectionId)
+  isMenuOpen.value = false
   if (!section) {
     return
   }
 
-  const navbarOffset = 92
+  const navbarOffset = 72
   const top = section.getBoundingClientRect().top + window.scrollY - navbarOffset
-
   window.scrollTo({ top, behavior: 'smooth' })
-  isMenuOpen.value = false
 }
 </script>
 
 <style scoped>
 .menu-fade-enter-active,
 .menu-fade-leave-active {
-  transition: all 0.2s ease;
+  transition: opacity 0.15s ease;
 }
 
 .menu-fade-enter-from,
 .menu-fade-leave-to {
   opacity: 0;
-  transform: translateY(-6px);
 }
 </style>

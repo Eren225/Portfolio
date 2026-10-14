@@ -1,39 +1,26 @@
 <template>
-  <div class="section-shell p-5 sm:p-8 md:p-10">
+  <div>
     <SectionHeading
       eyebrow="Compétences"
-      title="Un profil tech + business"
-      description="Des compétences techniques et produit, construites sur des projets web, d'analyse et d'applications."
+      title="Ce que j'apporte à une équipe"
+      description="Une base technique solide pour dialoguer avec les développeurs, et une formation en gestion pour piloter, analyser et prioriser."
     />
 
-    <div class="mt-8 space-y-7">
-      <article
-        v-for="group in skillGroups"
-        :key="group.id"
-        class="theme-surface-soft theme-border rounded-2xl border p-4 sm:p-6"
-      >
-        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h3 class="font-display theme-text text-2xl">{{ group.title }}</h3>
-          <p class="theme-text-muted text-xs uppercase tracking-[0.12em]">
-            {{ group.skills.length }} items
-          </p>
-        </div>
+    <div class="mt-8 grid gap-8 lg:grid-cols-3">
+      <article v-for="group in skillGroups" :key="group.id" class="border-t border-ink pt-4">
+        <h3 class="text-lg font-semibold tracking-tight text-ink">{{ group.title }}</h3>
+        <p class="mt-1 text-sm text-muted">{{ group.description }}</p>
 
-        <p class="theme-text-soft mt-2 text-sm">{{ group.description }}</p>
-
-        <div v-if="group.display === 'tags'" class="mt-5 flex flex-wrap gap-2">
-          <span
+        <ul class="mt-4 divide-y divide-line text-sm">
+          <li
             v-for="skill in group.skills"
             :key="`${group.id}-${skill.name}`"
-            class="theme-chip rounded-md px-3 py-1.5 text-sm font-semibold"
+            class="flex items-center justify-between gap-3 py-2.5"
           >
-            {{ skill.name }}
-          </span>
-        </div>
-
-        <div v-else class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <SkillCard v-for="skill in group.skills" :key="`${group.id}-${skill.name}`" :skill="skill" />
-        </div>
+            <span class="font-medium text-ink">{{ skill.name }}</span>
+            <span v-if="skill.level" class="text-muted">{{ skill.level }}</span>
+          </li>
+        </ul>
       </article>
     </div>
   </div>
@@ -41,6 +28,5 @@
 
 <script setup>
 import SectionHeading from '@/components/ui/SectionHeading.vue'
-import SkillCard from '@/components/ui/SkillCard.vue'
 import { skillGroups } from '@/data/portfolioContent'
 </script>
